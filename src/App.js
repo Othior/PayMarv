@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import './App.css';
+import Header from "../src/components/Header/Header"
 import Login from "../src/components/Auth/Login";
 import Logout from "../src/components/Auth/Logout";
 import Register from "../src/components/Auth/Register";
@@ -14,12 +15,11 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
+            <Header>
+
+            
+            </Header>
             <h2>Home</h2>
-            <div>
-              {localStorage.getItem("pseudo") ? <Logout/> : <Link to="/login">Login</Link>}
-            </div>
-            <div><Link to="/note">Note</Link></div>
-            <div><Link to="/pay">Pay</Link></div>
             
             
           </Route>
