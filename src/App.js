@@ -19,7 +19,7 @@ function App() {
 
             
             </Header>
-            <h2>Home</h2>
+            <h2 className="title">Home</h2>
             
             
           </Route>

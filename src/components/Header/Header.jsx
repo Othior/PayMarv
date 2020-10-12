@@ -14,9 +14,9 @@ import Logout from "../Auth/Logout"
                 <li><Link to="/note">Note</Link></li>
                 <li><Link to="/pay">Pay</Link></li>
                 <li>
-                    <span>{JSON.parse(localStorage.getItem("pseudo"))}</span>
+                    <span className="pseudo">{JSON.parse(localStorage.getItem("pseudo"))}</span>
                     <span>
-                        {localStorage.getItem("pseudo") ? <Logout/>  : <Link to="/login">Login</Link>}
+                    {localStorage.getItem("pseudo") ? <Logout/>  : <Link to="/login">Login</Link>}
                     </span>
                 </li>
             </ul>

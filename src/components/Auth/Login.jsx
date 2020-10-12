@@ -42,7 +42,7 @@ function Login() {
   }
     return (
       <div>
-        <h2> Se Connecter </h2>
+        <h2 className="title"> Se Connecter </h2>
         <div>
           <label>Email :</label> <input type="text" ref={email}/>
           <label>Mot de passe :</label> <input type="password" ref={password}/>

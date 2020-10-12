@@ -57,7 +57,7 @@ function Register() {
   }
     return (
       <div>
-        <h2> S'enregister </h2>
+        <h2 className="title"> S'enregister </h2>
         <div>
           <label>Pseudo :</label> <input type="text" ref={pseudo} required/>
           <label>Email :</label> <input type="email" ref={email} required/>

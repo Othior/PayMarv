@@ -1,6 +1,7 @@
 import React, { createRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link, useHistory } from "react-router-dom";
-import { fire , db } from "../../fire"
+import { fire , db } from "../../fire";
+import Header from "../Header/Header";
 
 function Pay() {
 
@@ -30,6 +31,12 @@ function Pay() {
 
   }
 
+  const deletedItem = (ev,id) =>{
+    db.collection("Pay").doc(id).delete().then(()=>{
+      alert("Objet est bien supprimé ! ")
+      window.location.href="/pay";
+    })
+  }
 
   const fetchPay = () => {
     db.collection("Pay").get().then(querySnapshot =>{
@@ -41,25 +48,40 @@ function Pay() {
     })
   }
 
+
+  
+
   useEffect(()=>{
     fetchPay();
   },[])
     return (
-      <div>
-        <h2> Fiche de trucs a payer </h2>
+      <>
+        <Header/>
         <div>
-            <label htmlFor="">Titre :</label><input type="text" ref={titleInput}/>
-            <label htmlFor="">Prix</label><input type="number" ref={priceInput}/>
-            <input type="submit" value="ajouter" onClick={(e) => payDay(e)}/>
+          <div className="form">
+          <h2 className="title"> Fiche de trucs a payer </h2>
+            <div className="titleInput">
+              <label htmlFor="">Titre : </label><input type="text" ref={titleInput}/>
+            </div>
+            <div className="priceInput">
+              <label htmlFor="">Prix : </label><input type="number" ref={priceInput}/>
+            </div>
+            <div className="btnSubmit">
+              <input type="submit" value="ajouter" onClick={(e) => payDay(e)}/>
+            </div>
+          </div>
+          <div className="fiche">
+              {price.map((item,index)=>(
+                <>
+                  <div className="item_fiche" key={index}>
+                      <p>Titre : {item.title} = Prix : {item.price} € = Mois : {item.month} <span className="deleted" onClick={(ev) => deletedItem(ev,item.title)}>X</span> </p>
+                  <hr/>
+                  </div>
+                </>
+              ))}
+          </div>
         </div>
-        <div className="fiche">
-            {price.map((item,index)=>(
-                <div key={index}>
-                    <p>Titre : {item.title} = Prix : {item.price} € = Mois : {item.month}</p>
-                </div>
-            ))}
-        </div>
-      </div>
+      </>
     );
   }
   

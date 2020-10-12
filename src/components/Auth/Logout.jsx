@@ -11,5 +11,5 @@ export default function Logout(){
         window.location.href = "/"
     }
     
-    return <button onClick={(e) => handleLogout(e)} >Logout</button>
+    return <span className="btnLogout" onClick={(e) => handleLogout(e)} >Logout</span>
 }
