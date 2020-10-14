@@ -54,20 +54,25 @@ header > ul > li:last-child > span{
 .form{
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  align-items: baseline;
   margin: auto;
-  background: #42b983;
-  width: 50%;
-  padding: 5rem;
+  background :rgb(226, 225, 225);
+  width: 58%;
+  padding: 2rem;
   border-radius: 1rem;
-  color: white;
+  color: black;
   -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.4);
   -moz-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.4);
   box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.4);
 }
 .titleInput,.priceInput,.btnSubmit{
-  margin: 2rem;
+  width: 40%;
+}
+.inputSubmit{
+  color: white;
+  background: #42b983;
+  border: none;
+  width: 100%;
 }
 
 /* label{
@@ -91,8 +96,12 @@ input{
   border: 1px solid rgb(199, 198, 198);
   border-radius: 1rem;
   margin: auto;
-  width: 50%;
+  margin-top: 2rem;
+  width: 60%;
   padding: 1rem;
+  -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.4);
   
 }
 .item_fiche{
@@ -104,4 +113,67 @@ input{
   color: red;
   margin-left: 2rem;
   cursor: pointer;
+}
+/* ===================== REGISTER ====================== */
+.container-form-register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 3rem;
+}
+.title-form{
+  font-size: 3em;
+  margin: 30px;
+}
+.title-block{
+  display: flex;
+  justify-content: center;
+}
+.rectangle-gauche,.rectangle-droit{
+  border-bottom: 1px solid #A5A5A5;
+}
+.form-register{
+  width: 50rem;
+  border-radius: 8px;
+  border: 1px solid #A5A5A5;
+  -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.4);
+}
+.form-register div{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.input-pseudo,.input-firstname,.input-lastname,.input-email,.input-password,.input-confirm-password{
+  margin: 20px 0;
+}
+input{
+  width: 75%;
+  height: 2rem;
+  border-radius: 8px;
+  border: 1px solid #A5A5A5;
+  color: #41957a;;
+}
+.link-register-login{
+  padding-bottom: 2rem;
+}
+.btn-submit{
+  background: #41957a;;
+  color: white;
+  width: 30%;
+  border: none;
+}
+.input-submit{
+  padding-bottom: 1rem;
+}
+/* ======================================================== */
+.container-form-login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30rem;
+  padding-bottom: 6rem;
+  
 }

@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 
 function Pay() {
 
-
+    const history = useHistory();
     const titleInput = createRef();
     const priceInput = createRef();
     
@@ -18,16 +18,26 @@ function Pay() {
 
 
   const payDay = () => {
+
     const title = titleInput.current.value;
     const price = priceInput.current.value;
-    db.collection("Pay").doc(title).set({
-        title:title,
-        price:price,
-        month:month[getMonthToday]
-    })
-    setTimeout(()=>{
-        window.location.href="/pay";
-    },2000)
+
+    if(title !== "" && price !== "" && JSON.parse(localStorage.getItem("pseudo"))!== null){
+      db.collection("Pay").doc(title).set({
+          UserId:JSON.parse(localStorage.getItem("pseudo")),
+          title:title,
+          price:price,
+          month:month[getMonthToday]
+      })
+      setTimeout( () => {
+          window.location.href="/pay";
+      },2000)
+    }else if(title === "" || price === ""){
+      alert(" Vous n'avez pas remplis les champs ");
+    }else{
+      alert(" Vous n'avez pas de compte , vous devez vous inscrire ");
+      history.push("/login");
+    }
 
   }
 
@@ -39,10 +49,10 @@ function Pay() {
   }
 
   const fetchPay = () => {
-    db.collection("Pay").get().then(querySnapshot =>{
+    db.collection("Pay").where("UserId","==",JSON.parse(localStorage.getItem("pseudo"))).get().then(querySnapshot =>{
         querySnapshot.forEach(doc => {
           data.push(doc.data())
-          console.log(doc.id, " => ", doc.data());
+          // console.log(doc.id, " => ", doc.data());
         });
         setPrice(data);
     })
@@ -58,26 +68,26 @@ function Pay() {
       <>
         <Header/>
         <div>
+            <h2 className="title"> Fiche de trucs a payer </h2>
           <div className="form">
-          <h2 className="title"> Fiche de trucs a payer </h2>
             <div className="titleInput">
-              <label htmlFor="">Titre : </label><input type="text" ref={titleInput}/>
+              <label htmlFor="">Titre  </label><input type="text" ref={titleInput}/>
             </div>
             <div className="priceInput">
-              <label htmlFor="">Prix : </label><input type="number" ref={priceInput}/>
+              <label htmlFor="">Prix  </label><input type="number" ref={priceInput}/>
             </div>
             <div className="btnSubmit">
-              <input type="submit" value="ajouter" onClick={(e) => payDay(e)}/>
+              <input className="inputSubmit" type="submit" value="Ajouter" onClick={(e) => payDay(e)}/>
             </div>
           </div>
           <div className="fiche">
               {price.map((item,index)=>(
-                <>
-                  <div className="item_fiche" key={index}>
+                <div key={index}>
+                  <div className="item_fiche" >
                       <p>Titre : {item.title} = Prix : {item.price} € = Mois : {item.month} <span className="deleted" onClick={(ev) => deletedItem(ev,item.title)}>X</span> </p>
                   <hr/>
                   </div>
-                </>
+                </div>
               ))}
           </div>
         </div>

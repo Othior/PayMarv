@@ -1,6 +1,7 @@
 import React, { createRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link, useHistory } from "react-router-dom";
 import { fire , db } from "../../fire"
+import Header from '../Header/Header';
 
 function Login() {
 
@@ -42,13 +43,26 @@ function Login() {
   }
     return (
       <div>
-        <h2 className="title"> Se Connecter </h2>
-        <div>
-          <label>Email :</label> <input type="text" ref={email}/>
-          <label>Mot de passe :</label> <input type="password" ref={password}/>
-          <input type="submit" onClick={(ev)=> signIn(ev)} value="se connecter"/>
-        </div>
-        <Link to="/register">pas de compte? s'enregistrer </Link>
+        <Header/>
+        <div className="title-block">
+                <span className="rectangle-gauche"></span><h2 className="title-form">Login</h2><span className="rectangle-droit"></span>
+            </div>
+            <div className="container-form-login">
+                <div className="form-register">
+                    <div className="input-pseudo">
+                    <label>Email :</label> <input type="text" ref={email} required/>
+                    </div>
+                    <div className="input-password">
+                        <label>Password : </label><input type="password"  ref={password} required/>
+                    </div>
+                    <div className="input-submit">
+                        <input className="btn-submit" type="submit" onClick={(e) => signIn(e)} value="Login"/>
+                    </div>
+                    <div className="link-register-login">
+                      <Link to="/register">pas de compte? s'enregistrer </Link>
+                    </div>
+                </div>
+            </div>
       </div>
     );
   }

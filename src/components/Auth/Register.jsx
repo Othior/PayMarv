@@ -1,6 +1,7 @@
 import React, { createRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link, useHistory } from "react-router-dom";
 import {fire, db} from "../../fire";
+import Header from "../Header/Header";
 
 function Register() {
 
@@ -57,15 +58,31 @@ function Register() {
   }
     return (
       <div>
-        <h2 className="title"> S'enregister </h2>
-        <div>
-          <label>Pseudo :</label> <input type="text" ref={pseudo} required/>
-          <label>Email :</label> <input type="email" ref={email} required/>
-          <label>Mot de passe :</label> <input type="password" ref={password} required/>
-          <input type="submit" onClick={(ev) => signUp(ev) }value="s'enregister"/>
+        <Header/>
+        <div className="title-block">
+            <span className="rectangle-gauche"></span><h2 className="title-form">Register</h2><span className="rectangle-droit"></span>
         </div>
-        <Link to="/login">vous avez déjà un compte ? se connecter </Link>
+            <div className="container-form-register">
+                <form onSubmit={(ev) => signUp(ev)} className="form-register">
+                    <div className="input-pseudo">
+                        <label>Pseudo : </label><input type="text" ref={pseudo} required/>
+                    </div>
+                    <div className="input-email">
+                        <label>Email : </label><input type="email" ref={email} required/>
+                    </div>
+                    <div className="input-password">
+                        <label>Password : </label><input type="password"  ref={password} required/>
+                    </div>
+                    <div className="input-submit">
+                        <input className="btn-submit" type="submit" value="Register"/>
+                    </div>
+                    <div className="link-register-login">
+                    <Link to="/login">vous avez déjà un compte ? se connecter </Link>
+                    </div>
+                </form>
+            </div>
       </div>
+      
     );
   }
   
