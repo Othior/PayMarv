@@ -19,7 +19,6 @@ function Register() {
       let data = [];
       querySnapshot.forEach(doc => {
         data.push(doc.data().mail)
-        console.log(doc.id, " => ", doc.data().mail);
       });
       setMailUser(data);
     })
@@ -44,7 +43,6 @@ function Register() {
         
         
         fire.auth().createUserWithEmailAndPassword(mail,passwd).then(doc => {
-          console.log("doc => ",doc)
           localStorage.setItem('pseudo', JSON.stringify(username))
           history.push("/")
         });
