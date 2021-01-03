@@ -67,24 +67,24 @@ function Pay() {
     return (
       <>
         <Header/>
-        <div>
-            <h2 className="title"> Fiche de trucs a payer </h2>
+            <h2 className="titlePay"> Fiche de trucs a payer </h2>
+        <div className="container">
           <div className="form">
-            <div className="titleInput">
-              <label htmlFor="">Titre  </label><input type="text" ref={titleInput}/>
-            </div>
-            <div className="priceInput">
-              <label htmlFor="">Prix  </label><input type="number" ref={priceInput}/>
-            </div>
-            <div className="btnSubmit">
-              <input className="inputSubmit" type="submit" value="Ajouter" onClick={(e) => payDay(e)}/>
-            </div>
+              <label htmlFor="">Titre  </label><input className="inputTitlePay" type="text" ref={titleInput}/>
+            
+              <label htmlFor="">Prix  </label><input className="inputPricePay" type="number" ref={priceInput}/>
+            
+              <button className="btnSubmitPay" type="submit" onClick={(e) => payDay(e)}>
+                Ajouter
+              </button>
           </div>
-          <div className="fiche">
+          <div className="containerFiche">
+            <h3 className="titleFiche">A Payer</h3>
               {price.map((item,index)=>(
-                <div key={index}>
+                <div className="fiche" key={index}>
                   <div className="item_fiche" >
-                      <p>Titre : {item.title} = Prix : {item.price} € = Mois : {item.month} <span className="deleted" onClick={(ev) => deletedItem(ev,item.title)}>X</span> </p>
+                      <p>{item.title} {item.price} € en {item.month} <span className="deleted" onClick={(ev) => deletedItem(ev,item.title)}>X</span> </p>
+                      {/* <img src="../../assets/euro.png" />  */}
                   <hr/>
                   </div>
                 </div>
