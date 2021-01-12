@@ -83,7 +83,7 @@ function Pay() {
               {price.map((item,index)=>(
                 <div className="fiche" key={index}>
                   <div className="item_fiche" >
-                      <p>{item.title} {item.price} € en {item.month} <span className="deleted" onClick={(ev) => deletedItem(ev,item.title)}>X</span> </p>
+                      <p>{item.title} {item.price} <i className="fas fa-euro-sign"></i> en {item.month} <span className="deleted" onClick={(ev) => deletedItem(ev,item.title)}>X</span> </p>
                       {/* <img src="../../assets/euro.png" />  */}
                   <hr/>
                   </div>
