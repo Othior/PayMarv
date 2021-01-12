@@ -29,7 +29,6 @@ import Logout from "../Auth/Logout"
                         <i className="fa fa-bars"></i>
                     </div>
                 </div>
-
                 <div className="nav-item" >
                     <h2>PayMarv</h2>
                     <ul ref={hamburgerResponsive}>

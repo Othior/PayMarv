@@ -20,7 +20,6 @@ nav{
 }
 .active {
   display: block;
-  
 }
 
 ul{
@@ -41,7 +40,6 @@ ul > li > a {
 .hamburger{
   margin: auto;
   width: 15vw;
-  
 }
 .nav-item {
   width: 85vw;
@@ -222,9 +220,6 @@ button{
 .checkbtn{
   color: white;
   font-size: 30px;
-  line-height: 80px;
-  margin-right: 40px;
-  float: right;
   cursor: pointer;
   display: none;
 }
@@ -290,17 +285,20 @@ button{
 }
 @media(max-width:858px){
   .checkbtn{
-      display: block;
-      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
-  .hamburger , .nav-item{
+  .hamburger , .nav-item , .checkbtn{
     height: 6rem;
   }
   .hamburger{
-    width: 0vw;
+    width: 15vw;
   }
   .nav-item{
     margin: 0;
+    align-items: center;
+    flex-direction: row-reverse;
   }
   .hamburger > label{
     margin-right: 3rem;
