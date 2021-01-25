@@ -227,6 +227,10 @@ button{
   display: none;
 }
 
+.totalPrice{
+  
+}
+
 @media screen and (min-width: 200px) and (max-width: 390px) {
   .container{
     flex-direction: column;

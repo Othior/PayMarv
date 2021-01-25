@@ -11,7 +11,9 @@ function Pay() {
     
     const [month,setMonth] = useState(["Janvier","Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Decembre"]);
     let data = [];
+    let total = [];
     const [price,setPrice] = useState([]);
+    const [totalPrice,setTotalPrice] = useState(0);
 
     const today = new Date();
     const getMonthToday = today.getMonth();
@@ -26,7 +28,7 @@ function Pay() {
       db.collection("Pay").doc(title).set({
           UserId:JSON.parse(localStorage.getItem("pseudo")),
           title:title,
-          price:price,
+          price:parseInt(price),
           month:month[getMonthToday]
       })
       setTimeout( () => {
@@ -52,13 +54,21 @@ function Pay() {
     db.collection("Pay").where("UserId","==",JSON.parse(localStorage.getItem("pseudo"))).get().then(querySnapshot =>{
         querySnapshot.forEach(doc => {
           data.push(doc.data())
-          // console.log(doc.id, " => ", doc.data());
+          // console.log(doc.id, " => ", doc.data().price);
+          total.push(parseInt(doc.data().price));
+          const reducer = (accumulator, currentValue) => accumulator + currentValue;
+          total.reduce(reducer);
+          
         });
         setPrice(data);
+        setTotalPrice(sum());
     })
   }
 
-
+const sum = ()=>{
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  return total.reduce(reducer);
+}
   
 
   useEffect(()=>{
@@ -80,7 +90,8 @@ function Pay() {
           </div>
           <div className="containerFiche">
             <h3 className="titleFiche">A Payer</h3>
-              {price.map((item,index)=>(
+              <div>
+                {price.map((item,index)=>(
                 <div className="fiche" key={index}>
                   <div className="item_fiche" >
                       <p>{item.title} {item.price} <i className="fas fa-euro-sign"></i> en {item.month} <span className="deleted" onClick={(ev) => deletedItem(ev,item.title)}>X</span> </p>
@@ -89,6 +100,14 @@ function Pay() {
                   </div>
                 </div>
               ))}
+              </div>
+              <div className="fiche">
+                <div>
+                  <p> Total :{ totalPrice } <i className="fas fa-euro-sign"></i></p>
+                </div>
+                
+              </div>
+              
           </div>
         </div>
       </>
