@@ -8,8 +8,8 @@ export default Todo;
 function Todo(){
     const [listTodo,setTodoList] = useState([]);
     const data = [];
-    const isTrue = true;
-    const valueItem = createRef();
+    // const isTrue = true;
+    // const valueItem = createRef();
     const valueTodoList = createRef();
     const valueTodo = createRef();
 
@@ -41,14 +41,22 @@ function Todo(){
 
     }
 
-    const highligth = (e,index) => {
-        e.preventDefault();
-        // let valueIsHighLigth = document.querySelector(".TodoListValue").children[0].classList;
-        
-        console.log("index => ",index)
-        console.log("data-id => ",valueItem.current)
-        console.log("valueTodoList => ",valueTodoList.current.innerHTML)
-        console.log("class TodoListValue => ",document.querySelector(".TodoListValue").dataset.id)
+    const highligth = (e,index ,item) => {
+        // e.preventDefault();
+        let valueIsHighLigth = document.querySelector("#TodoListValue"+index).children[0].classList;
+        listTodo.map(element =>{
+            if(element === item){
+                console.log("valueIsHighLigth => ",valueIsHighLigth)
+                if(valueIsHighLigth.contains("line")){
+                    valueIsHighLigth.remove("line");
+                }else{
+                    valueIsHighLigth.add("line");
+                }
+            }
+        })
+
+        // console.log("index => ",index)
+        // console.log("item => ",item)
        
     }
 
@@ -80,10 +88,10 @@ function Todo(){
             </div>
             <div className="blockTodoList">
                 {listTodo.map((item,index)=> (
-                    <div className="TodoListValue" key={index} ref={valueItem} data-id={index}>
-                        <p className="" ref={valueTodoList}>{item}</p>
+                    <div className="TodoListValue" key={index} id={"TodoListValue"+ index}>
+                        <p className="">{item}</p>
                         <div className="btnMenu">
-                            <span  onClick={ (e) => highligth(e,index) }><i className="fas fa-check valid"></i></span>
+                            <span  onClick={ (e) => highligth(e,index,item) }><i className="fas fa-check valid"></i></span>
                             <span onClick={ (e) => deleteValue(e,item) }><i className="fas fa-times delete"></i></span>
                         </div>
                     </div>
