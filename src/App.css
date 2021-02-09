@@ -238,7 +238,7 @@ button{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 40vw;
+  /* width: 50vw; */
   margin: auto;
 }
 .title{
@@ -247,7 +247,20 @@ button{
   color: white;
 }
 .blockInput{
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+}
+.blockInput , .blockTodoList{
   padding: 1rem;
+  /* width: 100%; */
+  margin: auto;
+}
+.blockTodoList{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .blockInput input{
  /* margin: 0 1rem; */
@@ -269,8 +282,8 @@ button{
 .TodoListValue{
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  width: 36rem;
+  align-items: center;
+  width: 42rem;
   margin: 1rem 0rem;
   padding: 1rem 0rem;
   background-color: #70B8AC;
@@ -320,6 +333,21 @@ button{
     width: 60vw;
     margin-top: 2rem;
   }
+  .blockInput , .blockTodoList{
+    width: 20rem;
+    padding: 0;
+  }
+  .blockTodoList{
+    margin: 1rem 0rem;
+  }
+  .btnMenu{
+    padding: 0;
+    display: flex;
+  }
+  .TodoListValue{
+    width: 20rem;
+  }
+  
 }
 @media screen and (min-width: 390px) and (max-width: 520px) {
   .container{
@@ -336,6 +364,20 @@ button{
   .containerFiche{
     margin-top: 2rem;
   }
+  .blockInput , .blockTodoList{
+    width: 20rem;
+    padding: 0;
+  }
+  .blockTodoList{
+    margin: 1rem 0rem;
+  }
+  .btnMenu{
+    padding: 0;
+    display: flex;
+  }
+  .TodoListValue{
+    width: 20rem;
+  }
 }
 @media screen and (min-width: 520px) and (max-width: 800px) {
   .container{
@@ -349,6 +391,12 @@ button{
   .containerFiche{
     margin-top: 2rem;
   }
+  .blockInput , .blockTodoList{
+    width: 30rem;
+  }
+  .TodoListValue{
+    width: 30rem;
+  }
 }
 @media screen and (min-width: 800px) and (max-width: 1400px) {
   .container{
@@ -360,6 +408,16 @@ button{
   }
   .containerFiche{
     width: 50vw;
+  }
+  .blockInput , .blockTodoList{
+    width: 30rem;
+    padding: 0;
+  }
+  .blockTodoList{
+    margin: 1rem 0rem;
+  }
+  .TodoListValue{
+    width: 30rem;
   }
 }
 @media(max-width:858px){
