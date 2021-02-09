@@ -53,7 +53,7 @@ function Pay() {
   const fetchPay = () => {
     db.collection("Pay").where("UserId","==",JSON.parse(localStorage.getItem("pseudo"))).get().then(querySnapshot =>{
         querySnapshot.forEach(doc => {
-          data.push(doc.data())
+          data.push(doc.data());
           // console.log(doc.id, " => ", doc.data().price);
           total.push(parseInt(doc.data().price));
           const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -80,7 +80,7 @@ const sum = ()=>{
             <h2 className="titlePay"> Fiche de trucs a payer </h2>
         <div className="container">
           <div className="form">
-              <label htmlFor="">Titre : </label><input className="inputTitlePay" type="text" />
+              <label htmlFor="">Titre : </label><input className="inputTitlePay" type="text" ref={titleInput}/>
             
               <label htmlFor="">Prix  : </label><input className="inputPricePay" type="number" ref={priceInput}/>
             
