@@ -7,6 +7,7 @@ import Logout from "../src/components/Auth/Logout";
 import Register from "../src/components/Auth/Register";
 import Pay from "../src/components/Pay/Pay";
 import Note from "../src/components/Note/Note";
+import Todo from "../src/components/todoList/todoList";
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route exact path="/note">
             <Note />
+          </Route>
+          <Route exact path="/todo">
+            <Todo />
           </Route>
         </Switch>
       </Router>

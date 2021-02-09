@@ -25,7 +25,7 @@ import Logout from "../Auth/Logout"
                 <div className="hamburger">
                     <input type="checkbox" id="check"/>
 
-                    <div for="check" className="checkbtn"  onClick={(e)=> responsiveNavbar(e)}>
+                    <div htmlFor="check" className="checkbtn"  onClick={(e)=> responsiveNavbar(e)}>
                         <i className="fa fa-bars"></i>
                     </div>
                 </div>
@@ -34,6 +34,7 @@ import Logout from "../Auth/Logout"
                     <ul ref={hamburgerResponsive}>
                         <li><Link to="/note">Note</Link></li>
                         <li><Link to="/pay">Pay</Link></li>
+                        <li><Link to="/todo">Todo</Link></li>
                         <li className="spaceUser">
                             <span className="pseudo">{JSON.parse(localStorage.getItem("pseudo"))}</span>
                             <span>

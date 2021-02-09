@@ -80,7 +80,7 @@ const sum = ()=>{
             <h2 className="titlePay"> Fiche de trucs a payer </h2>
         <div className="container">
           <div className="form">
-              <label htmlFor="">Titre : </label><input className="inputTitlePay" type="text" ref={titleInput}/>
+              <label htmlFor="">Titre : </label><input className="inputTitlePay" type="text" />
             
               <label htmlFor="">Prix  : </label><input className="inputPricePay" type="number" ref={priceInput}/>
             
