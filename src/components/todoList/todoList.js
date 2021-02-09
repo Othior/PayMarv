@@ -25,8 +25,10 @@ function Todo(){
         }).catch(err => {
             console.log("err => ", err);
         })
-
-        window.location.reload();
+        alert("the taks is complited")
+        setTimeout(()=>{
+            window.location.reload();
+        },1000)
 
     }
 
@@ -45,8 +47,8 @@ function Todo(){
         
         console.log("index => ",index)
         console.log("data-id => ",valueItem.current)
-        console.log("data-id => ",valueTodoList.current.innerHTML)
-        console.log(document.querySelector(".TodoListValue").dataset.id)
+        console.log("valueTodoList => ",valueTodoList.current.innerHTML)
+        console.log("class TodoListValue => ",document.querySelector(".TodoListValue").dataset.id)
        
     }
 
