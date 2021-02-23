@@ -16,7 +16,7 @@ nav{
   width: 100%;
   height: 6rem;
   color: white;
-  margin-bottom: 3rem;
+  /* margin-bottom: 3rem; */
 }
 .active {
   display: block;
@@ -53,6 +53,7 @@ ul {
 }
 ul > li {
   width: 10vw;
+  /* padding: 2rem; */
   list-style-type: none;
 }
 .spaceUser{
@@ -83,6 +84,9 @@ button{
 }
 
 .title{
+  font-size: 2em;
+  margin: 3rem 0rem;
+  color: white;
   text-align: center;
 }
 
@@ -92,17 +96,22 @@ button{
 
 .form{
   display: flex;
-  /* justify-content: flex-start; */
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  background : var(--backgroundGreyClair);
-  width: 45vw;
-  padding: 2rem;
-  border-radius: 1rem;
-  color: black;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  width: 40vw;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 }
-
+.form input{
+  background-color: #70B8AC;
+  border: 1px solid #365953;
+  outline: none;
+  padding: 1rem;
+  border-radius: 10px;
+}
 .form > input , .form > button{
   margin-top: 1rem;
 }
@@ -120,10 +129,20 @@ button{
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  flex-direction: column;
   margin: auto;
   width: 50vw;
 }
-
+.containerPay{
+  position: relative;
+}
+.containerTodo,.containerPay,.containerNote{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+}
 .inputTitlePay , .inputPricePay{
   width: 80%;
 }
@@ -135,17 +154,29 @@ button{
  label{
   margin-top: 1rem;
   color: black;
+  font-size: 25px;
 }
 .containerFiche{
-  background :var(--backgroundGreyClair);
   border-radius: 1rem;
-  margin-left: 2rem;
-  width: 20vw;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  /* margin-left: 2rem; */
+  padding: 2rem 0rem;
+  /* width: 20vw; */
+  margin: auto;
+  text-align: center;
 }
 .fiche{
   display: flex;
   justify-content: center;
+}
+.fiche p {
+  background-color: #70B8AC;
+  /* box-shadow: inset 0 0 10px; */
+  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+  /* border: 1px solid #365953; */
+  padding: 1rem;
+  font-size: 2em;
+  border-radius: 50%;
+  margin: 0;
 }
 .titleFiche{
   text-align: center;
@@ -206,6 +237,8 @@ button{
 .btnSubmitPay{
   background: var(--colorPrimary);
   color: white;
+  border-radius: 10px;
+  font-size: 25px;
 }
 .input-submit{
   padding-bottom: 1rem;
@@ -241,11 +274,6 @@ button{
   /* width: 50vw; */
   margin: auto;
 }
-.title{
-  font-size: 2em;
-  margin: 2rem 0rem;
-  color: white;
-}
 .blockInput{
   /* text-align: center; */
   display: flex;
@@ -279,7 +307,7 @@ button{
   width: 30rem;
   color: white;
 }
-.TodoListValue{
+.listValue{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -290,7 +318,7 @@ button{
   border-radius: 10px;
   /* color: white; */
 }
-.TodoListValue p {
+.listValue p {
   margin: 0;
   padding: 0rem 1rem;
   font-size: 20px;

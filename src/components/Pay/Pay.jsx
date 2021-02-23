@@ -69,6 +69,9 @@ const sum = ()=>{
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   return total.reduce(reducer);
 }
+const highligth = (e,index,item) => {
+
+}
   
 
   useEffect(()=>{
@@ -77,8 +80,8 @@ const sum = ()=>{
     return (
       <>
         <Header/>
+        <div className="containerPay">
             <h2 className="titlePay"> Fiche de trucs a payer </h2>
-        <div className="container">
           <div className="form">
               <label htmlFor="">Titre : </label><input className="inputTitlePay" type="text" ref={titleInput}/>
             
@@ -89,24 +92,20 @@ const sum = ()=>{
               </button>
           </div>
           <div className="containerFiche">
-            <h3 className="titleFiche">A Payer</h3>
-              <div>
+          <div className="fiche">
+                <p>{ totalPrice } <i className="fas fa-euro-sign"></i></p>
+            </div>
                 {price.map((item,index)=>(
-                <div className="fiche" key={index}>
-                  <div className="item_fiche" >
-                      <p>{item.title} {item.price} <i className="fas fa-euro-sign"></i> en {item.month} <span className="deleted" onClick={(ev) => deletedItem(ev,item.title)}>X</span> </p>
-                      {/* <img src="../../assets/euro.png" />  */}
-                  <hr/>
+                  <div className="listValue" key={index} id={"listValue"+ index}>
+                      <p>{item.title} {item.price} <i className="fas fa-euro-sign"></i> en {item.month} 
+                      </p>
+                      <div className="btnMenu">
+                          <span  onClick={ (e) => highligth(e,index,item) }><i className="fas fa-check valid"></i></span>
+                          <span onClick={(ev) => deletedItem(ev,item.title)}><i className="fas fa-times delete"></i></span>
+                      </div>
                   </div>
-                </div>
               ))}
-              </div>
-              <div className="fiche">
-                <div>
-                  <p> Total :{ totalPrice } <i className="fas fa-euro-sign"></i></p>
-                </div>
-                
-              </div>
+              
               
           </div>
         </div>

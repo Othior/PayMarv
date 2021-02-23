@@ -30,7 +30,7 @@ import Logout from "../Auth/Logout"
                     </div>
                 </div>
                 <div className="nav-item" >
-                    <h2>PayMarv</h2>
+                    <h2 className="titleSite">PayMarv</h2>
                     <ul ref={hamburgerResponsive}>
                         <li><Link to="/note">Note</Link></li>
                         <li><Link to="/pay">Pay</Link></li>

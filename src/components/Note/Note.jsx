@@ -50,6 +50,10 @@ function Note() {
     })
   }
 
+  const highligth = (e,index,item) => {
+
+  }
+
   useEffect(()=>{
     fetchNote();
   },[])
@@ -72,13 +76,13 @@ function Note() {
           <div className="containerFiche">
             <h3 className="titleFiche">Liens utiles :</h3>
               {items.map((item,index)=>(
-                <div className="fiche" key={index}>
-                  <div className="item_fiche" >
-                      <span>{item.title} <a href={item.url}>click ici</a><span className="deleted" onClick={(ev) => deletedItem(ev,item.title)}>X</span> </span>
-                      
-                  <hr/>
+                  <div className="listValue" key={index}>
+                      <p>{item.title} <a href={item.url}>click ici</a> </p>
+                      <div className="btnMenu">
+                          <span onClick={ (e) => highligth(e,index,item) }><i className="fas fa-check valid"></i></span>
+                          <span onClick={(ev) => deletedItem(ev,item.title)}><i className="fas fa-times delete"></i></span>
+                      </div>
                   </div>
-                </div>
               ))}
           </div>
         </div>

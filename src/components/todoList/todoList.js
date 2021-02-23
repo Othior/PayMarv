@@ -88,7 +88,7 @@ function Todo(){
             </div>
             <div className="blockTodoList">
                 {listTodo.map((item,index)=> (
-                    <div className="TodoListValue" key={index} id={"TodoListValue"+ index}>
+                    <div className="listValue" key={index} id={"TodoListValue"+ index}>
                         <p className="">{item}</p>
                         <div className="btnMenu">
                             <span  onClick={ (e) => highligth(e,index,item) }><i className="fas fa-check valid"></i></span>
