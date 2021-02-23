@@ -507,6 +507,7 @@ button{
   }
   .active{
     left: 0;
+    z-index: 10;
   }
   .spaceUser{
     flex-direction: column;
