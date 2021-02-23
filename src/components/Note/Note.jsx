@@ -63,7 +63,7 @@ function Note() {
       <Header />
       <div>
         <h2 className="titlePay"> Note a prendre </h2>
-        <div className="container">
+        <div className="containerNote">
           <div className="form">
             <label htmlFor="">Titre :</label><input className="inputTitlePay" type="text" ref={titleInput} />
 
@@ -71,7 +71,7 @@ function Note() {
 
             <button className="btnSubmitPay" type="submit" onClick={(e) => addNote(e)}>
               Ajouter
-              </button>
+            </button>
           </div>
           <div className="containerFiche">
             <h3 className="titleFiche">Liens utiles :</h3>

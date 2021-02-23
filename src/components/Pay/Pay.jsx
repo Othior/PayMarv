@@ -95,6 +95,7 @@ const highligth = (e,index,item) => {
           <div className="fiche">
                 <p>{ totalPrice } <i className="fas fa-euro-sign"></i></p>
             </div>
+            <div className="blockPay">
                 {price.map((item,index)=>(
                   <div className="listValue" key={index} id={"listValue"+ index}>
                       <p>{item.title} {item.price} <i className="fas fa-euro-sign"></i> en {item.month} 
@@ -105,8 +106,7 @@ const highligth = (e,index,item) => {
                       </div>
                   </div>
               ))}
-              
-              
+              </div>
           </div>
         </div>
       </>

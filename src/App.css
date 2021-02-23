@@ -157,6 +157,10 @@ button{
   font-size: 25px;
 }
 .containerFiche{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   border-radius: 1rem;
   /* margin-left: 2rem; */
   padding: 2rem 0rem;
@@ -326,6 +330,7 @@ button{
 }
 .btnMenu{
   padding: 0rem 1rem;
+  display: flex;
 }
 .btnMenu span{
   margin: 1rem;
@@ -370,9 +375,8 @@ button{
   }
   .btnMenu{
     padding: 0;
-    display: flex;
   }
-  .TodoListValue{
+  .listValue{
     width: 20rem;
   }
   
@@ -401,9 +405,8 @@ button{
   }
   .btnMenu{
     padding: 0;
-    display: flex;
   }
-  .TodoListValue{
+  .listValue{
     width: 20rem;
   }
 }
@@ -422,7 +425,7 @@ button{
   .blockInput , .blockTodoList{
     width: 30rem;
   }
-  .TodoListValue{
+  .listValue{
     width: 30rem;
   }
 }
@@ -435,16 +438,16 @@ button{
     width: 70vw;
   }
   .containerFiche{
-    width: 50vw;
+    width: 40vw;
   }
   .blockInput , .blockTodoList{
     width: 30rem;
     padding: 0;
   }
-  .blockTodoList{
+  .blockTodoList,.blockPay{
     margin: 1rem 0rem;
   }
-  .TodoListValue{
+  .listValue{
     width: 30rem;
   }
 }
