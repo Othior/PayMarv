@@ -318,7 +318,7 @@ button{
   align-items: center;
   width: 42rem;
   margin: 1rem 0rem;
-  padding: 1rem 0rem;
+  /* padding: 1rem 0rem; */
   background-color: #70B8AC;
   border-radius: 10px;
   /* color: white; */
