@@ -20,6 +20,7 @@ nav{
 }
 .active {
   display: block;
+  z-index: 10;
 }
 
 ul{
@@ -507,7 +508,6 @@ button{
   }
   .active{
     left: 0;
-    z-index: 10;
   }
   .spaceUser{
     flex-direction: column;
