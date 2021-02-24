@@ -114,7 +114,7 @@ const highligth = (e,index,item) => {
           <div className="form">
               <label htmlFor="">Titre : </label><input className="inputTitlePay" type="text" ref={titleInput}/>
             
-              <label htmlFor="">Prix  : </label><input className="inputPricePay" type="text" ref={priceInput}/>
+              <label htmlFor="">Prix  : </label><input className="inputPricePay" type="number" ref={priceInput}/>
             
               <button className="btnSubmitPay" type="submit" onClick={(e) => payDay(e)}>
                 Ajouter
