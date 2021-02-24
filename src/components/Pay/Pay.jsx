@@ -13,7 +13,8 @@ function Pay() {
     let data = [];
     let total = [];
     const [price,setPrice] = useState([]);
-    const [totalPrice,setTotalPrice] = useState(0);
+    // let [resultTotalPrice ,setResultTotalPrice] = useState(0)
+    let [totalPrice,setTotalPrice] = useState(0);
 
     const today = new Date();
     const getMonthToday = today.getMonth();
@@ -28,12 +29,12 @@ function Pay() {
       db.collection("Pay").doc(title).set({
           UserId:JSON.parse(localStorage.getItem("pseudo")),
           title:title,
-          price:parseInt(price),
+          price:parseFloat(price),
           month:month[getMonthToday]
       })
       setTimeout( () => {
           window.location.href="/pay";
-      },2000)
+      },1000)
     }else if(title === "" || price === ""){
       alert(" Vous n'avez pas remplis les champs ");
     }else{
@@ -54,25 +55,53 @@ function Pay() {
     db.collection("Pay").where("UserId","==",JSON.parse(localStorage.getItem("pseudo"))).get().then(querySnapshot =>{
         querySnapshot.forEach(doc => {
           data.push(doc.data());
-          // console.log(doc.id, " => ", doc.data().price);
-          total.push(parseInt(doc.data().price));
-          const reducer = (accumulator, currentValue) => accumulator + currentValue;
-          total.reduce(reducer);
+
+
+          if(doc.data() === null || doc.data() === undefined || doc.data() === ""){
+            // console.log("il n'y a rien dans le panier");
+          }else{
+            // console.log("il y a des choses dans le panier")
+            total.push(parseFloat(doc.data().price));
+            const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            total.reduce(reducer);
+            setTotalPrice(sum());
+          }
+          // console.log(doc.id, " => ", doc.data());
+          // if(doc.data().price)
+          
           
         });
         setPrice(data);
-        setTotalPrice(sum());
+        
     })
   }
 
-const sum = ()=>{
+const sum = () => {
   const reducer = (accumulator, currentValue) => accumulator + currentValue;
   return total.reduce(reducer);
 }
 const highligth = (e,index,item) => {
-
+  let valueIsHighLigth = document.querySelector("#listValue"+index).children[0].classList;
+  let result = 0;
+    price.map(element =>{
+            if(element === item){
+                // console.log("valueIsHighLigth => ",valueIsHighLigth)
+                if(valueIsHighLigth.contains("line")){
+                    valueIsHighLigth.remove("line");
+                    totalPrice += element.price 
+                    console.log(totalPrice)
+                }else{
+                    valueIsHighLigth.add("line");
+                    console.log(element.price);
+                    totalPrice -= element.price;
+                    console.log(totalPrice)
+                }
+            }
+        })
 }
-  
+  function handleTotalPrice(e){
+    console.log(e.target.value)
+  }
 
   useEffect(()=>{
     fetchPay();
@@ -85,7 +114,7 @@ const highligth = (e,index,item) => {
           <div className="form">
               <label htmlFor="">Titre : </label><input className="inputTitlePay" type="text" ref={titleInput}/>
             
-              <label htmlFor="">Prix  : </label><input className="inputPricePay" type="number" ref={priceInput}/>
+              <label htmlFor="">Prix  : </label><input className="inputPricePay" type="text" ref={priceInput}/>
             
               <button className="btnSubmitPay" type="submit" onClick={(e) => payDay(e)}>
                 Ajouter
@@ -93,15 +122,17 @@ const highligth = (e,index,item) => {
           </div>
           <div className="containerFiche">
           <div className="fiche">
-                <p>{ totalPrice } <i className="fas fa-euro-sign"></i></p>
+                <p onChange={ e => handleTotalPrice(e) }>{ totalPrice } <i className="fas fa-euro-sign"></i></p>
             </div>
             <div className="blockPay">
                 {price.map((item,index)=>(
                   <div className="listValue" key={index} id={"listValue"+ index}>
-                      <p>{item.title} {item.price} <i className="fas fa-euro-sign"></i> en {item.month} 
+                      <p>
+                        {item.title} {item.price} <i className="fas fa-euro-sign"></i>
+                        {/* &emsp;{item.month} <i class="fas fa-calendar-check"></i> */}
                       </p>
                       <div className="btnMenu">
-                          <span  onClick={ (e) => highligth(e,index,item) }><i className="fas fa-check valid"></i></span>
+                          {/* <span onClick={ (e) => highligth(e,index,item) }><i className="fas fa-check valid"></i></span> */}
                           <span onClick={(ev) => deletedItem(ev,item.title)}><i className="fas fa-times delete"></i></span>
                       </div>
                   </div>

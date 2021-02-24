@@ -79,7 +79,7 @@ function Note() {
                   <div className="listValue" key={index}>
                       <p>{item.title} <a href={item.url}>click ici</a> </p>
                       <div className="btnMenu">
-                          <span onClick={ (e) => highligth(e,index,item) }><i className="fas fa-check valid"></i></span>
+                          {/* <span onClick={ (e) => highligth(e,index,item) }><i className="fas fa-check valid"></i></span> */}
                           <span onClick={(ev) => deletedItem(ev,item.title)}><i className="fas fa-times delete"></i></span>
                       </div>
                   </div>

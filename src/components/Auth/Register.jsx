@@ -61,21 +61,13 @@ function Register() {
             <span className="rectangle-gauche"></span><h2 className="title-form">Register</h2><span className="rectangle-droit"></span>
         </div>
             <div className="container-form-register">
-                <form onSubmit={(ev) => signUp(ev)} className="form-register">
-                    <div className="input-pseudo">
-                        <label>Pseudo : </label><input type="text" ref={pseudo} required/>
-                    </div>
-                    <div className="input-email">
-                        <label>Email : </label><input type="email" ref={email} required/>
-                    </div>
-                    <div className="input-password">
-                        <label>Password : </label><input type="password"  ref={password} required/>
-                    </div>
-                    <div className="input-submit">
-                        <input className="btn-submit" type="submit" value="Register"/>
-                    </div>
+                <form onSubmit={(ev) => signUp(ev)} className="form">
+                    <label>Pseudo : </label><input type="text" ref={pseudo} required/>
+                    <label>Email : </label><input type="email" ref={email} required/>
+                    <label>Password : </label><input type="password"  ref={password} required/>
+                    <button className="btnSubmitPay" type="submit">Register</button>
                     <div className="link-register-login">
-                    <Link to="/login">vous avez déjà un compte ? se connecter </Link>
+                      <Link to="/login">vous avez déjà un compte ? se connecter </Link>
                     </div>
                 </form>
             </div>

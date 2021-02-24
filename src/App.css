@@ -32,7 +32,7 @@ header > nav > ul > li{
   list-style: none;
   
 }
-ul > li > a {
+ul > li > a  , ul li span a{
   color: white;
   text-decoration: none;
   color: white;
@@ -70,6 +70,7 @@ input{
   border: none;
   background: none;
   border-bottom: 1px solid black;
+  width: 80%;
 }
 
 button{
@@ -95,7 +96,7 @@ button{
   cursor: pointer;
 }
 
-.form{
+.form , .form-register{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,15 +107,21 @@ button{
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
 }
-.form input{
+.form input {
   background-color: #70B8AC;
   border: 1px solid #365953;
   outline: none;
   padding: 1rem;
   border-radius: 10px;
 }
-.form > input , .form > button{
-  margin-top: 1rem;
+.form > input , .form > button , .form-register > input , .form-register > button{
+  margin-top: 1rem ;
+}
+.form > button , .form-register > button {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  /* margin: 1rem 0rem; */
+
 }
 
 .titlePay{
@@ -185,6 +192,8 @@ button{
 }
 .titleFiche{
   text-align: center;
+  color: white;
+  font-size: 25px;
 }
 .item_fiche{
   border-radius: 1rem;
@@ -205,6 +214,7 @@ button{
 .title-form{
   font-size: 3em;
   margin: 30px;
+  color: white;
 }
 .title-block{
   display: flex;
@@ -227,18 +237,18 @@ button{
   align-items:center;
   justify-content:center;
 }
-.input-pseudo,.input-firstname,.input-lastname,.input-email,.input-password,.input-confirm-password{
+/* .input-pseudo,.input-firstname,.input-lastname,.input-email,.input-password,.input-confirm-password{
   margin: 20px 0;
-}
+} */
 .link-register-login{
   padding-bottom: 2rem;
 }
-.btn-submit{
+/* .btn-submit{
   background: var(--colorPrimary);
   color: white;
   width: 30%;
   border: none;
-}
+} */
 .btnSubmitPay{
   background: var(--colorPrimary);
   color: white;
@@ -311,6 +321,7 @@ button{
   border-bottom-left-radius: 10px;
   width: 30rem;
   color: white;
+  background-color: #70B8AC;
 }
 .listValue{
   display: flex;
