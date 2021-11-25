@@ -518,7 +518,7 @@ button{
       color: var(--colorGreyClair);
   }
   .active{
-    left: 0;
+    left: 0px;
   }
   .spaceUser{
     flex-direction: column;

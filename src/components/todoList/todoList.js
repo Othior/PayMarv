@@ -12,6 +12,7 @@ function Todo(){
     // const valueItem = createRef();
     const valueTodoList = createRef();
     const valueTodo = createRef();
+    const valueTodoUpdate = createRef();
 
     const sendValue = (e) => {
         e.preventDefault();
@@ -60,6 +61,16 @@ function Todo(){
        
     }
 
+    const updateTodo = (e,index,item) => {
+
+        console.log("index => ", index);
+        console.log("item => ", item);
+
+        valueTodoUpdate.current.value = item
+
+        
+    }
+
     const fetchTodoList = () => {
         db.collection("Todo").where("UserId","==",JSON.parse(localStorage.getItem("pseudo"))).get().then( querySnapshot => {
         querySnapshot.forEach(element => {
@@ -92,6 +103,7 @@ function Todo(){
                         <p className="">{item}</p>
                         <div className="btnMenu">
                             <span  onClick={ (e) => highligth(e,index,item) }><i className="fas fa-check valid"></i></span>
+                            <span  onClick={ (e) => updateTodo(e,index,item) }><i className="fas fa-check valid">edit</i></span>
                             <span onClick={ (e) => deleteValue(e,item) }><i className="fas fa-times delete"></i></span>
                         </div>
                     </div>
@@ -99,7 +111,10 @@ function Todo(){
                 
             </div>
          </div>
-
+         <div className="blockInput">
+            <input  className="valueTodo" type="text"  name="valueTodo" ref={valueTodoUpdate} />
+            <button onClick={(e) => sendValue(e)}>Send</button>
+        </div>        
         </>
     )
 } 
